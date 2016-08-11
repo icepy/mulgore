@@ -2,7 +2,7 @@
 
 > 混沌初开，从目录开始
 
-先从下载源码开始 `git@github.com:facebook/react.git` ，然后找个编辑器去打开这个项目吧。第一眼，请不要被这个项目的目录结构吓坏了，其实你只需要阅读 `src` 目录就好。先从第一个文件 `ReactVersion.js` 开始吧，顾名思义它只有一个版本号的定义。
+先从下载源码开始吧 `git@github.com:facebook/react.git` ，然后找个编辑器去打开这个项目吧。第一眼，请不要被这个项目的目录结构吓坏了，其实你只需要阅读 `src` 目录就好。先从第一个文件 `ReactVersion.js` 开始，顾名思义它只有一个版本号的定义。
 
 ```JavaScript
 'use strict';
@@ -58,8 +58,6 @@ BUILD
 
 ```JavaScript
 var _assign = require('object-assign');
-
-
 process.env.NODE_ENV !== 'production'
 
 ```
@@ -72,7 +70,7 @@ process.env.NODE_ENV !== 'production'
 
 介绍中可以得知这是ES2015规范中的 `Object.assign`，如果你不知道这是干嘛的，请继续在MDN上搜索。
 
-回到 `React.js` 源文件，在最后方我们可以看见它导出了一个 `React` 对象，在这个对象中我们日常编程用到的那些，都是从这而来。
+回到 `React.js` 源文件，我们可以看见它导出了一个 `React` 对象，在这个对象中就是我们日常编程所用到的那些。
 
 
 
