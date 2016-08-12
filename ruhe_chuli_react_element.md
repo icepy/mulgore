@@ -63,7 +63,7 @@ var element = {
 
 `REACT_ELEMENT_TYPE` 这个常量使用 `Symbol` 来判断是否为 `React` 元素类型。
 
-## 如何装载
+## render
 
 ![](img/render.png)
 
@@ -119,7 +119,5 @@ _renderSubtreeIntoContainer: function(parentComponent, nextElement, container, c
 }
 ```
 
-在经过一系列的处理，包括 container 对象，最后调用 `_renderNewRootComponent` 来生存一个 component 并返回。
-
-当然这其中还经历一些比如 DOMComponent 的创建，batchedUpdates 批量更新等。
+在经过一系列的处理，包括 container 对象，最后调用 `_renderNewRootComponent` 来生存一个 component 并返回。当然这其中还经历一些比如 DOMComponent 的创建，batchedUpdates 批量更新等。
 
