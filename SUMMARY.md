@@ -5,5 +5,5 @@
 * [第二章：渲染](di_er_zhang_ff1a_xuan_ran.md)
    * [1.0 Virtual DOM](virtual_dom.md)
    * [1.1 如何处理 React 元素对象](ruhe_chuli_react_element.md)
-   * [1.2 React 元素对象如何转化成了 DOM 元素并呈现在浏览器中](react_yuansu_duixiang_ruhe_zhuanhua_weile_dom_element.md)
+   * [1.2 ReactElement 对象如何转化成了 DOMComponent 对象](reactelement_duxiang_ruhe_zhuanhua_chengle_domcomponent_duxiang.md)
 

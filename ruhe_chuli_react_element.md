@@ -65,6 +65,8 @@ var element = {
 
 ## 如何装载
 
+![](img/render.png)
+
 从 `CreactElement` 和 `ReactElement` 来看其实这是一个非常简单的对象组合的过程，最后你应该可以得到如下的一个对象：
 
 ```JavaScript
@@ -118,4 +120,6 @@ _renderSubtreeIntoContainer: function(parentComponent, nextElement, container, c
 ```
 
 在经过一系列的处理，包括 container 对象，最后调用 `_renderNewRootComponent` 来生存一个 component 并返回。
+
+当然这其中还经历一些比如 DOMComponent 的创建，batchedUpdates 批量更新等。
 
