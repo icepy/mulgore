@@ -27,12 +27,12 @@ if (typeof element.type === 'string') {
 
 这个 `element` 就是 `ReactElement` 对象了，那么从这里开始一步一步我们可以追寻到 `ReactDOMComponent`，这才是真正创建 DOMComponent 对象的地方。不过，到了这一步，我们依然还无法在浏览器中查看。
 
-当然如果你的 `element.type` 是一个 `function` 时，什么情况下 type 会是一个 function呢？比如：
+当然如果你的 `element.type` 是一个 `function` 时，那么它会进入 `new ReactCompositeComponentWrapper`， 什么情况下 type 会是一个 function呢？比如：
 
 ```JavaScript
 <Button type="primary" size="full">Full button</Button>
 ```
-这个时候的 type 就是一个 function（React组件），于是它才会加上生命周期等。
+这个时候的 type 就是一个 function（React组件），于是它会加上生命周期等，你可以阅读 `src/render/reconciler/ReactCompositeComponent.js`。
 
 `ReactDOMComponent` 是一个构造器，这构造器中并未有多复杂的地方，依然只是有了一些初始化的属性：
 

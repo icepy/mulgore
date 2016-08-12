@@ -2,7 +2,7 @@
 
 > 目前为止一些准备工作已经就绪，接下来我们将进入渲染阶段的处理。
 
-文件依然是 `src/renderers/dom/client/ReactMount.js`，根据前一小节，我们可以知道根节点的DOMComponent 对象创建成功，接着会调用 `ReactUpdates.batchedUpdates` ，这是一个批量更新的方法，我们可以在源文件中进一步阅读。
+文件依然是 `src/renderers/dom/client/ReactMount.js`，根据前一小节，我们可以知道根节点的`DOMComponent` 对象或者 `ReactCompositeComponent` 对象创建成功，接着会调用 `ReactUpdates.batchedUpdates` ，这是一个批量更新的方法，我们可以在源文件中进一步阅读。
 
 ```JavaScript
 batchingStrategy.batchedUpdates(callback, a, b, c, d, e);
