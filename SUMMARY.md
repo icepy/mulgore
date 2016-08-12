@@ -9,6 +9,7 @@
    * [1.3 batchedUpdates与事务](batched_updates_yu_shiwu.md)
    * [1.4 React生命周期的实现](react_shengm_zhouqi_de_shixian.md)
    * [1.5 React事件系统](react_shijian_xitong.md)
+   * [1.6 最后React是如何呈现DOM节点的](react_shi_ruhe_chengxian_dom_jiediande.md)
 * [第三章：更新机制](di_san_zhang_ff1a_gengxin_jizhi.md)
    * [1.0 依赖props的UI]() 
 
