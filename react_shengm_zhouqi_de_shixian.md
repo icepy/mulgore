@@ -20,7 +20,9 @@ if (inst.unstable_handleError) {
 }
 ```
 
-进入了 `performInitialMount` 方法中，在这个方法内它调用了 `componentWillMount` 也就是在组件挂载之前的生命周期钩子方法。然后通过 `renderedElement = this._renderValidatedComponent();` 来获取了ReactElement 创建了对象。	然后继续调用了 `ReactReconciler.mountComponent` ，其实又回到了 `mountComponent` 中，如此循环下去，一直到最后，将组件都处理完毕。
+进入了 `performInitialMount` 方法中，在这个方法内它调用了 `componentWillMount` 也就是在组件挂载之前的生命周期钩子方法。然后通过 `renderedElement = this._renderValidatedComponent();` 来获取 ReactElement 创建的对象，并且通过 `this._renderedComponent = this._instantiateReactComponent(
+      renderedElement
+    );` 来获取组件实例，然后继续调用了 `ReactReconciler.mountComponent` ，其实又回到了 `mountComponent` 中，如此循环下去，一直到最后，将组件都处理完毕。
 
 ```JavaScript
  if (inst.componentDidMount) {
@@ -31,6 +33,13 @@ if (inst.unstable_handleError) {
    }
  }
 ```
-以及`componentDidMount` 方法是加入到了一个事务中的队列内。
+
+以及`componentDidMount` 方法是加入到了一个事务中的队列内。通过源码我们可以很清晰的看见一个很有趣的现象，父组件的 `componentWillMount` 方法一定在子组件的 `componentWillMount` 方法之前调用。父组件的 `componentDidMount` 方法一定在子组件的 `componentDidMount`方法之后调用。当然，如果你在 `componentWillMount` 中使用了 `setState` 方法，那么这又会进入另外一个流程，不过你可以放下它肯定不会调用 `render` 方法，而是去合并 state ，这一个步骤要在 update 中描述。
+
+```JavaScript
+if (this._pendingStateQueue) {
+  inst.state = this._processPendingState(inst.props, inst.context);
+}
+```
 
 目前为止，React生命周期的前一部分处理完毕。
