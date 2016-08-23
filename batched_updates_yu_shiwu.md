@@ -37,7 +37,6 @@ var ReactDefaultBatchingStrategy = {
 
 事务一般来说在数据库操作时非常常见，这个设计模式目标是在于并发访问多个构件之间共享的数据，它只是一个执行单元。那如果在 `React` 中，我们该如何理解这个设计呢？
 
-## 理解React中的Transaction设计
+实际上React是封装了一个Mixin来处理Transaction的，事务给需要执行的函数包装了两个wrapper，每个wrapper都有 initialize 和 close 方法。当一个事务需要 perform 的时候，都会先调用相应的 initialize 方法，同样的在事务结束的时候会调用 close 方法，这样才会构成了一个完整的事务。
 
-待续 ...
-
+通过调用栈，我们可以很清楚的知道（这里不涉及setState，因为这是初始化。）React 将渲染的处理包装成了事务，通过这个事务来处理的比如计算props，生成DOM节点等。
